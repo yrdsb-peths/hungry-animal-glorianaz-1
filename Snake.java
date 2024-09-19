@@ -16,4 +16,31 @@ public class Snake extends Actor
     {
         // Add your action code here.
         
-        if(Greenfoot.isKe
+        if(Greenfoot.isKeyDown("right"))
+        {
+            move(1);
+        }
+        else if(Greenfoot.isKeyDown("left"))
+        {
+            move(-1);
+        }
+        
+        //Remove cupcake if snake eats it
+        eat();
+        
+    }
+    
+    /* 
+     * Eat the cupcake and spawn new cupcake if a cupcake is eaten 
+     */
+    public void eat()
+    {
+        if(isTouching(Cupcake.class))
+        {
+            removeTouching(Cupcake.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.createCupcake();
+            world.increaseScore();
+        }
+    }
+}
