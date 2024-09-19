@@ -9,22 +9,32 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Snake extends Actor
 {
     GreenfootSound snakeSound = new GreenfootSound("snake-rattle-sound-hq-240150.mp3");
-    GreenfootImage[] idle = new GreenfootImage[5];
+    GreenfootImage[] idleLeft = new GreenfootImage[5];
+    GreenfootImage[] idleRight = new GreenfootImage[5];
     
     // Direction the snake is facing
-    String facing = "right";
+    String facing = "left";
     
     /*
      * Constructor - The code that gets run one time when object is created
      */
     public Snake()
     {
-        for(int i = 0; i < idle.length; i++)
+        for(int i = 0; i < idleLeft.length; i++)
         {
-            idle[i] = new GreenfootImage("images/snake_idle/idle" + i + ".gif");
-            idle[i].scale(160, 90);
+            idleLeft[i] = new GreenfootImage("images/snake_idle/idle" + i + ".gif");
+            idleLeft[i].scale(200, 80);
         }
-        setImage(idle[0]);
+        
+        for(int i = 0; i < idleRight.length;i++)
+        {
+            idleRight[i] = new GreenfootImage("images/snake_idle/idle" + i + ".gif");
+            idleRight[i].mirrorHorizontally();
+            idleRight[i].scale(2000, 80);
+        }
+        
+        // Initial snake image
+        setImage(idleLeft[0]);
     }
     
     /*
@@ -33,8 +43,16 @@ public class Snake extends Actor
     int imageIndex = 0;
     public void animateSnake()
     {
-        setImage(idle[imageIndex]);
-        imageIndex = (imageIndex + 1) % idle.length;
+        if(facing.equals("left"))
+        {
+            setImage(idleLeft[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleLeft.length;
+        }
+        else 
+        {
+            setImage(idleRight[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleRight.length;
+        }
     }
     
     /**
@@ -47,12 +65,15 @@ public class Snake extends Actor
         
         if(Greenfoot.isKeyDown("right"))
         {
-            move(1);
+            move(2);
+            facing = "right";
         }
         else if(Greenfoot.isKeyDown("left"))
         {
-            move(-1);
+            move(-2);
+            facing = "left";
         }
+        
         
         //Remove cupcake if snake eats it
         eat();
