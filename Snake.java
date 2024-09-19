@@ -9,7 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Snake extends Actor
 {
     GreenfootSound snakeSound = new GreenfootSound("snake-rattle-sound-hq-240150.mp3");
-    GreenfootImage[] idle = new GreenfootImage[9];
+    GreenfootImage[] idle = new GreenfootImage[5];
+    
+    // Direction the snake is facing
+    String facing = "right";
     
     /*
      * Constructor - The code that gets run one time when object is created
@@ -18,8 +21,8 @@ public class Snake extends Actor
     {
         for(int i = 0; i < idle.length; i++)
         {
-            idle[i] = new GreenfootImage("images/snake_idle/idle" + i + ".png");
-            idle[i].scale(150, 150);
+            idle[i] = new GreenfootImage("images/snake_idle/idle" + i + ".gif");
+            idle[i].scale(160, 90);
         }
         setImage(idle[0]);
     }
