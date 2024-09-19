@@ -9,14 +9,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Snake extends Actor
 {
     GreenfootSound snakeSound = new GreenfootSound("snake-rattle-sound-hq-240150.mp3");
-    GreenfootImage idle = new GreenfootImage("images/snake_idle/idle0");
+    GreenfootImage[] idle = new GreenfootImage[7];
     
     /*
      * Constructor - The code that gets run one time when object is created
      */
     public Snake()
     {
-        setImage(idle);
+        for(int i = 0; i < idle.length; i++)
+        {
+            idle[i] = new GreenfootImage("images/snake_idle/idle" + i + ".png");
+        }
+        setImage(idle[0]);
     }
     
     /**
@@ -33,26 +37,4 @@ public class Snake extends Actor
         }
         else if(Greenfoot.isKeyDown("left"))
         {
-            move(-1);
-        }
-        
-        //Remove cupcake if snake eats it
-        eat();
-        
-    }
-    
-    /* 
-     * Eat the cupcake and spawn new cupcake if a cupcake is eaten 
-     */
-    public void eat()
-    {
-        if(isTouching(Cupcake.class))
-        {
-            removeTouching(Cupcake.class);
-            MyWorld world = (MyWorld) getWorld();
-            world.createCupcake();
-            world.increaseScore();
-            snakeSound.play();
-        }
-    }
-}
+            mo
