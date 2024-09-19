@@ -14,7 +14,7 @@ public class Snake extends Actor
     
     // Direction the snake is facing
     String facing = "left";
-    
+    SimpleTimer animationTimer = new SimpleTimer();
     /*
      * Constructor - The code that gets run one time when object is created
      */
@@ -30,8 +30,10 @@ public class Snake extends Actor
         {
             idleRight[i] = new GreenfootImage("images/snake_idle/idle" + i + ".gif");
             idleRight[i].mirrorHorizontally();
-            idleRight[i].scale(2000, 80);
+            idleRight[i].scale(200, 80);
         }
+        
+        animationTimer.mark();
         
         // Initial snake image
         setImage(idleLeft[0]);
@@ -43,6 +45,12 @@ public class Snake extends Actor
     int imageIndex = 0;
     public void animateSnake()
     {
+        if(animationTimer.millisElapsed() < 100)
+        {
+            return;
+            
+        }
+        animationTimer.mark();
         if(facing.equals("left"))
         {
             setImage(idleLeft[imageIndex]);
