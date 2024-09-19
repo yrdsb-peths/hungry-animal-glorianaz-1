@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Snake extends Actor
 {
+    GreenfootSound snakeSound = new GreenfootSound("snake-rattle-sound-hq-240150.mp3");
+    
     /**
      * Act - do whatever the Snake wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -41,6 +43,7 @@ public class Snake extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.createCupcake();
             world.increaseScore();
+            snakeSound.play();
         }
     }
 }
