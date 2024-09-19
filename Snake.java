@@ -19,6 +19,7 @@ public class Snake extends Actor
         for(int i = 0; i < idle.length; i++)
         {
             idle[i] = new GreenfootImage("images/snake_idle/idle" + i + ".png");
+            idle[i].scale(150, 150);
         }
         setImage(idle[0]);
     }
