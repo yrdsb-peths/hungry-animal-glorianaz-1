@@ -9,6 +9,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Snake extends Actor
 {
     GreenfootSound snakeSound = new GreenfootSound("snake-rattle-sound-hq-240150.mp3");
+    GreenfootImage idle = new GreenfootImage("images/snake_idle/idle0");
+    
+    /*
+     * Constructor - The code that gets run one time when object is created
+     */
+    public Snake()
+    {
+        setImage(idle);
+    }
     
     /**
      * Act - do whatever the Snake wants to do. This method is called whenever
