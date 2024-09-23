@@ -18,7 +18,7 @@ public class Pizza extends Food
         moveDownwards(speed);
     }
     
-    public int getScoreValue()
+    public int getScore()
     {
         return 1;
     }

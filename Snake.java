@@ -95,12 +95,13 @@ public class Snake extends Actor
      */
     public void eat()
     {
-        if(isTouching(Cupcake.class))
+        if(isTouching(Food.class))
         {
-            removeTouching(Cupcake.class);
+            Food food = (Food)getOneIntersectingObject(Food.class);
+            removeTouching(Food.class);
             MyWorld world = (MyWorld) getWorld();
-            world.createCupcake();
-            world.increaseScore();
+            world.spawnFood();
+            world.increaseScore(food.getScore());
             snakeSound.play();
         }
     }

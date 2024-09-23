@@ -25,7 +25,7 @@ public class Cupcake extends Food
     }
     
     // Cupcake is 5 Points
-    public int getScoreValue()
+    public int getScore()
     {
         return 5;
     }
