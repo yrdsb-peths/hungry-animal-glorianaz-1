@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Cupcake extends Food
 {
-    private int speed = 2;
+    private int speed = 3;
     /**
      * Act - do whatever the Cupcake wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -27,6 +27,6 @@ public class Cupcake extends Food
     // Cupcake is 5 Points
     public int getScore()
     {
-        return 5;
+        return 2;
     }
 }
