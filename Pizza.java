@@ -23,8 +23,8 @@ public class Pizza extends Food
         return 1;
     }
     
-    public void setSpeed(int spd)
+    public void setSpeed(int level)
     {
-        speed = spd;
+        this.speed = level * 2;
     }
 }

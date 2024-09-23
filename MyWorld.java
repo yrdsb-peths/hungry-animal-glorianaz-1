@@ -34,6 +34,9 @@ public class MyWorld extends World
     
     public void spawnFood()
     {
+        // food reference - polymorphism
+        Food food;
+        
         if(Greenfoot.getRandomNumber(2) == 0)
         {
             createCupcake();
@@ -41,6 +44,7 @@ public class MyWorld extends World
         {
             createPizza();
         }
+        
     }
     /*
      * End the game and draw 'Game Over'

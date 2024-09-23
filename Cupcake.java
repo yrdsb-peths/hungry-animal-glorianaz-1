@@ -19,9 +19,9 @@ public class Cupcake extends Food
         moveDownwards(speed);
     }
     
-    public void setSpeed(int spd)
+    public void setSpeed(int level)
     {
-        speed = spd;
+        this.speed = level * 2;
     }
     
     // Cupcake is 5 Points
