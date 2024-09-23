@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    public int score;
+    private int score = 0;
     Label scoreLabel;
     int level = 1;
     /**
@@ -28,9 +28,24 @@ public class MyWorld extends World
         scoreLabel = new Label(0, 80);
         addObject(scoreLabel, 50, 50);
         
-        createCupcake();
+        spawnFood();
     }
     
+    
+    public void spawnFood()
+    {
+        // food reference - polymorphism
+        Food food;
+        
+        if(Greenfoot.getRandomNumber(2) == 0)
+        {
+            createCupcake();
+        }else
+        {
+            createPizza();
+        }
+        
+    }
     /*
      * End the game and draw 'Game Over'
      */
@@ -43,9 +58,9 @@ public class MyWorld extends World
     /*
      * Increase score
      */
-    public void increaseScore()
+    public void increaseScore(int points)
     {
-        score++;
+        score += points;
         scoreLabel.setValue(score);
         
         if(score % 5 == 0){
@@ -63,5 +78,14 @@ public class MyWorld extends World
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
         addObject(cupcake, x, y);
+    }
+    
+    public void createPizza()
+    {
+        Pizza pizza = new Pizza();
+        pizza.setSpeed(level);
+        int x = Greenfoot.getRandomNumber(600);
+        int y = 0;
+        addObject(pizza, x, y);
     }
 }
