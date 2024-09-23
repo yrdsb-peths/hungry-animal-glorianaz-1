@@ -6,9 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Gloriana Zheng
  * @version September 2024
  */
-public class Cupcake extends Actor
+public class Cupcake extends Food
 {
-    int speed = 1;
+    private int speed = 2;
     /**
      * Act - do whatever the Cupcake wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,20 +16,17 @@ public class Cupcake extends Actor
     public void act()
     {
         // Cupcake falls downwards
-        int x = getX();
-        int y = getY() + speed;
-        setLocation(x, y);
-        
-        MyWorld world = (MyWorld) getWorld();
-        if(getY() >= world.getHeight())
-        {
-            world.gameOver();
-            world.removeObject(this);
-        }
+        moveDownwards(speed);
     }
     
     public void setSpeed(int spd)
     {
         speed = spd;
+    }
+    
+    // Cupcake is 5 Points
+    public int getScoreValue()
+    {
+        return 5;
     }
 }
