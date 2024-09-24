@@ -36,8 +36,13 @@ dependency9.to=Cupcake
 dependency9.type=UsesDependency
 editor.fx.0.height=728
 editor.fx.0.width=800
+<<<<<<< Updated upstream
 editor.fx.0.x=281
 editor.fx.0.y=30
+=======
+editor.fx.0.x=684
+editor.fx.0.y=96
+>>>>>>> Stashed changes
 height=551
 package.numDependencies=10
 package.numTargets=8
