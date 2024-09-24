@@ -2,6 +2,8 @@
 This is the README.md file.
 Change this file to show your intended audience what you want them to see.
 
+The snake has to eat the cupcake or the pizza. Both foods have different points. 
+
 You can use **Markdown** syntax to format this file to do things like **bold** or *italicize* text.
 [Markdown basics](https://www.markdownguide.org/getting-started/)
 
